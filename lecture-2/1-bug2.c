@@ -14,16 +14,31 @@ void print(char * msg) {
 }
 
 int main(int argc, char ** argv) {
+    char * last;
+
     // block 1
     {
         char user[] = "user";
-        print(user);
+        // print(user);
+        {
+            char * msg = user;
+            printf("%s\n", msg);
+            last = msg;
+        }
     }
 
     // block 2
     {
         char pass[] = "pass";
-        print(NULL);
-        print(pass);
+        // print(NULL);
+        {
+            printf("%s\n", last);
+        }
+        // print(pass);
+        {
+            char * msg = pass;
+            printf("%s\n", msg);
+            last = msg;
+        }
     }
 }
